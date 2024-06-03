@@ -1,0 +1,42 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Usuario
+    </div>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Mantenedor" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input asp-for="Apellido" type="text" class="form-control">
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo</label>
+                <input asp-for="Correo" type="text" class="form-control">
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input asp-for="Contraseña" type="password" class="form-control">
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+            <select asp-for="Activo" class="form-select form-select-sm mb-3">
+                <option selected>Seleccionar si esta activo</option>
+                <option value="false">No</option>
+                <option value="true">Si</option>
+            </select>
+            <button type="submit" class="btn btn-primary hover"><i class="bi bi-person-fill-check"></i> Guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning"><i class="bi bi-card-list"></i> Volver a la lista</a>
+        </form>
+    </div>
+</div>
